@@ -8,7 +8,7 @@ import Featured from './Features';
 import Footer from '../components/Footer';
 
 
-const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
+const API_IMG = "https://image.tmdb.org/t/p/w500/";
 const CAROUSEL_DELAY = 3000;
 
 
@@ -48,7 +48,7 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
         >
           {firstFiveMovies.map((movieReq) => (
             <div key={movieReq.id} className="w-full h-96">
-              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='bg-contain object-center'/>
+              <img src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='bg-contain object-center'/>
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-left px-20">
                 <div className="text-white text-left w-[400px] pt-16">
