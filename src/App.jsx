@@ -4,6 +4,8 @@ import Features from "./components/Features";
 import MovieDetails from './components/movieDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+const movieUrl = import.meta.env.VITE_MOVIEBOX_URL;
+
 const App = () => {
   return (
     <Router>
