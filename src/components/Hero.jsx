@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'; 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Imdb from "../assets/imdb.png"
+import Imdb from "../assets/IMDB.png"
 import Navbar from './Navbar';
 import Featured from './Features';
 import Footer from '../components/Footer';
