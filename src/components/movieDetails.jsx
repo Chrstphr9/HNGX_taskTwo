@@ -19,6 +19,8 @@ const MovieDetails = () => {
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
     const [credits, setCredits] = useState(null);
+    const [showNavbar, setShowNavbar] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const fetchMovieDetails = async () => {

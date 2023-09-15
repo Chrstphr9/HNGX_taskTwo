@@ -8,6 +8,11 @@ const API_SEARCH = "https://api.themoviedb.org/3/search/movie?query=Jack+Reacher
 
 const Navbar = ({ setMovies }) => {
     const [query, setQuery] = useState("");
+    const [showMenu, setShowMenu] = useState(false)
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+      };
 
     const searchMovie = async (e) => {
         e.preventDefault();
@@ -29,21 +34,18 @@ const Navbar = ({ setMovies }) => {
     }
 
     return (
-        <nav className="fixed top-0 left-0 w-full bg-transparent px-1 z-10">
-            <div className="container sm:ml-20 px-0 py-5 flex justify-between items-center">
-                {/* Logo */}
+        <nav className="fixed top-0 left-0 w-full z-10">
+            <div className="container xx:w-full sm:ml-10 px-0 py-5 flex flex-row justify-between items-center bg-opacity-50 backdrop-blur-md">
                 <div className="flex items-center mr-8">
-                    <img src={tv} alt="Logo" className="h-8 w-8 mr-2" />
-                    <h1 className="text-white text-lg font-semibold">Movie Box</h1>
+                    <img src={tv} alt="Logo" className="h-8 w-8 xx:ml-4 sm:mr-2" />
+                    <h1 className="text-white text-lg font-semibold hidden sm:block">Movie Box</h1>
                 </div>
 
-                {/* Search Bar */}
-                <div className="relative flex-grow ml-4" >
+                <div className="relative  xx:ml-0 sm:ml-2 sm:block  sm:w-[400px]" >
                     <form onSubmit={searchMovie}>
                         <input
                             type="text"
-                            placeholder="What do you want to watch"
-                            
+                            placeholder="What do you want to watch"      
                             name="query"
                             value={query}
                             onChange={changeHandler}
@@ -56,13 +58,21 @@ const Navbar = ({ setMovies }) => {
 
                 </div>
 
-                {/* Login Button */}
-                <div className="px-4 py-2 ml-5 flex text-white flex-row transition duration-300">
-                    <a className="px-3">Sign In</a>
-                    <img src={Menu} alt="Logo" className="h-8 w-8 mr-2" />
-                </div>
+                <div className="sm:hidden flex items-center px-4 py-2 text-white">
+          <button onClick={toggleMenu}>
+            <img src={Menu} alt="Menu Icon" className="h-8 w-8" />
+          </button>
+          {showMenu && (
+            <div className="absolute top-14 right-0 mt-2 bg-white text-black w-40 p-2 rounded-lg shadow-md">
+              <a className="block py-1" href="#">Sign In</a>
             </div>
-        </nav>
+          )}
+        </div>
+        <div className="hidden sm:flex px-4 mr-8 py-2 text-white">
+          <a className="px-3">Sign In</a>
+        </div>
+      </div>
+    </nav>
     );
 };
 
