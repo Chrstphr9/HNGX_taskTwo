@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Featured from "./components/Features";
 
 
-const API_URL = "https://api.themoviedb.org/3/movie/top_rated?api_key=0ed706a9d9841118258f6c55acfaf4fe";
+const API_URL = "https://api.themoviedb.org/3/movie/top_rated?api_key=30f169c97fb7a96a33868328093edb39";
 
 function App() {
   const [movies, setMovies] = useState([]);

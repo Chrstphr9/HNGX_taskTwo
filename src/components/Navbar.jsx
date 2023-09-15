@@ -4,7 +4,7 @@ import search1 from "../assets/search1.png";
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const API_SEARCH = "https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=0ed706a9d9841118258f6c55acfaf4fe"
+const API_SEARCH = "https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=30f169c97fb7a96a33868328093edb39"
 
 const Navbar = ({ setMovies }) => {
     const [query, setQuery] = useState("");
