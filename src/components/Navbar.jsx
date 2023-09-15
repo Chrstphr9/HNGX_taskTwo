@@ -68,7 +68,7 @@ const Navbar = ({ setMovies }) => {
             </div>
           )}
         </div>
-        <div className="hidden sm:flex px-4 mr-8 py-2 text-white">
+        <div className="hidden sm:flex px-4 mr-8 w-[120px] py-2 text-white">
           <a className="px-3">Sign In</a>
         </div>
       </div>

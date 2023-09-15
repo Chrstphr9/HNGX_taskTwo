@@ -50,9 +50,9 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
             <div key={movieReq.id} className="w-full h-96">
               <img src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='bg-contain object-center'/>
               <div className="absolute inset-0 bg-black opacity-50"></div>
-              <div className="absolute inset-0 flex items-center justify-left px-20">
-                <div className="text-white text-left w-[400px] pt-16">
-                  <h1 className="text-2xl font-semibold py-2">{movieReq.title}</h1>
+              <div className="absolute inset-0 flex items-center justify-left xx:px-10 sm:px-10">
+                <div className="text-white text-left xx:w-[500px] sm:w-[400px] xx:pt-24 sm:pt-16">
+                  <h1 className="xx:text-2xl sm:text-3xl font-bold xx:py-4  sm:py-2">{movieReq.title}</h1>
                   <div className='flex flex-row'>
                     <div className='flex flex-row py-2'>
                       <img src={imdb} alt='img'/>

@@ -10,8 +10,8 @@ import List from "../assets/List.png"
 import ticket from "../assets/ticket.png"
 import down from "../assets/down.png"
 import { Link } from 'react-router-dom';
-import Menu from "../assets/ticket.png"
-import Close from "../assets/down.png"
+import Menu from "../assets/Menu.png"
+import Close from "../assets/Close.png"
 
 const api_key = "0ed706a9d9841118258f6c55acfaf4fe";
 const API_URL = 'https://api.themoviedb.org/3/movie/';
@@ -65,7 +65,7 @@ const MovieDetails = () => {
 
     return (
        <div className='xx:px-4 sm:px-6 flex flex-row sm:flex-row  justify-between'>
-        <div className={`cursor-pointer sm:visible ${showNavbar ? 'hidden' : ''}`} onClick={toggleNavbar}>
+        <div className={`cursor-pointer  sm:visible ${showNavbar ? 'hidden' : ''}`} onClick={toggleNavbar}>
                 {isMenuOpen ? (
                     <img src={Close} alt="Close Icon" className="h-8 w-8 ml-4 mt-4 z-10" />
                 ) : (
@@ -73,7 +73,7 @@ const MovieDetails = () => {
                 )}
             </div>
 
-            <nav className=' sm:w-[23%] border-2 flex flex-col md:rounded-r-3xl  rounded-r-3xl items-center py-2 border-gray-400'>
+            <nav className={`sm:w-[24] border-2 flex flex-col sm:rounded-r-3xl rounded-r-3xl items-center py-2 border-gray-400 ${showNavbar ? '' : 'hidden'}`}>
                 <div className="flex items-center mr-2 py-1">
                     <img src={tv} alt="Logo" className="h-8 w-8 mr-2" />
                     <h1 className=" text-lg font-semibold px-2">MovieBox</h1>
