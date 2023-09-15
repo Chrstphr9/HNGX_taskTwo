@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'; 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import imdb from "../assets/imdb.png"
+import Imbd from "../assets/imdb.png"
 import Navbar from './Navbar';
 import Featured from './Features';
 import Footer from '../components/Footer';
@@ -55,7 +55,7 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
                   <h1 className="xx:text-2xl sm:text-3xl font-bold xx:py-4  sm:py-2">{movieReq.title}</h1>
                   <div className='flex flex-row'>
                     <div className='flex flex-row py-2'>
-                      <img src={imdb} alt='img'/>
+                      <img src={Imdb} alt='img'/>
                       <h6 className='px-6'>{movieReq.vote_average}</h6>
                     </div>
                   </div>
