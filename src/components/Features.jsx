@@ -6,7 +6,13 @@ import imdb from "../assets/IMDB.png";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
+
+
 const Featured = ({ movies }) => {
+    const getReleaseDateMillis = (dateStr) => {
+        const date = new Date(dateStr);
+        return date.getTime();
+      };
   return (
     <div className='px-5 py-4 sm:pt-0'>
       <div className='flex flex-row justify-between py-2'>
@@ -22,7 +28,7 @@ const Featured = ({ movies }) => {
             <div data-testid="movie-card" className='card shadow-md  flex flex-col py-4 '>
               <img data-testid="movie-poster" src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
               <span data-testid="movie-release-date" className='py-2 px-1'> {movieReq.release_date}</span>
-              <h1 data-testid="movie-title" className='font-bold text-lg px-1'>{movieReq.title}</h1>
+              <h1 data-testid="movie-title" className='font-bold text-lg px-1'>{getReleaseDateMillis(movieReq.release_date)}</h1>
               <div className='flex flex-row px-1'>
                     <div className='flex flex-row py-2'>
                       <img src={imdb} alt='img' className='w-9 mt-0.5 h-5'/>

@@ -10,6 +10,8 @@ import List from "../assets/List.png"
 import ticket from "../assets/ticket.png"
 import down from "../assets/down.png"
 import { Link } from 'react-router-dom';
+import Menu from "../assets/ticket.png"
+import Close from "../assets/down.png"
 
 const api_key = "0ed706a9d9841118258f6c55acfaf4fe";
 const API_URL = 'https://api.themoviedb.org/3/movie/';
@@ -51,8 +53,25 @@ const MovieDetails = () => {
         return <div className='p-50'>Loading...</div>;
     }
 
+    const toggleNavbar = () => {
+        setShowNavbar(!showNavbar);
+        setIsMenuOpen(!isMenuOpen); 
+    };
+
+    const getReleaseDateMillis = (dateStr) => {
+        const date = new Date(dateStr);
+        return date.getTime();
+      };
+
     return (
-        <div className='p-5 px-6 flex flex-row sm:flex-row  justify-between'>
+       <div className='xx:px-4 sm:px-6 flex flex-row sm:flex-row  justify-between'>
+        <div className={`cursor-pointer sm:visible ${showNavbar ? 'hidden' : ''}`} onClick={toggleNavbar}>
+                {isMenuOpen ? (
+                    <img src={Close} alt="Close Icon" className="h-8 w-8 ml-4 mt-4 z-10" />
+                ) : (
+                    <img src={Menu} alt="Menu Icon" className="h-7 w-7 mt-2" />
+                )}
+            </div>
 
             <nav className=' sm:w-[23%] border-2 flex flex-col md:rounded-r-3xl  rounded-r-3xl items-center py-2 border-gray-400'>
                 <div className="flex items-center mr-2 py-1">
@@ -60,7 +79,7 @@ const MovieDetails = () => {
                     <h1 className=" text-lg font-semibold px-2">MovieBox</h1>
                 </div>
 
-                <nav className='flex flex-col py-7'>
+                <nav className='flex flex-col xx:py-4 sm:py-7'>
                     <Link to='/'>
                         <div className="px-10 py-8  flex hover:bg-[#f7d9e0] hover:text-[#BE123C] hover:font-bold hover:border-r-4 hover:border-[#BE123C] text-black flex-row transition duration-300">
                             <img src={Home} alt="Logo" className="h-6 w-6 mr-2" />
@@ -106,7 +125,7 @@ const MovieDetails = () => {
                 </div>
             </nav>
 
-            <div className='w-full px-5 sm:w-[77%]'>
+            <div className='w-full xx:px-1 xx:mt-7  sm:px-5 sm:w-[77%] xx:w-full'>
                 <div className='p-5 flex justify-center w-full'>
                     <div className="relative w-full">
                         <img
@@ -138,14 +157,14 @@ const MovieDetails = () => {
 
                 </div>
 
-                <div className='flex flex-row '>
+                <div className='flex sm:flex-row xx:flex-col items-center'>
                     <h2 data-testid="movie-title" className='pr-3 px-2 py-4 font-semibold'>{movieDetails.title} .</h2>
-                    <p data-testid="movie-release-date" className='px-3 py-4 font-semibold'>{movieDetails.release_date}</p>
+                    <p data-testid="movie-release-date" className='px-3 py-4 font-semibold'>{getReleaseDateMillis(movieDetails.release_date)}</p>
                     <p data-testid="movie-runtime" className='px-3 py-4 font-semibold'>{movieDetails.runtime} minutes</p>
                 </div>
 
-                <div className='grid xx:grid-cols-1 sm:grid-cols-2 gap-12'>
-                    <div className='w-[460px] px-2 py-1'>
+                <div className='grid xx:grid-cols-1 sm:grid-cols-2 xx:gap-4 sm:gap-12'>
+                    <div className='xx:w-full px-2 py-1'>
                         <p data-testid="movie-overview" className='py-4'>{movieDetails.overview}</p>
 
                         {credits && (
@@ -178,7 +197,7 @@ const MovieDetails = () => {
                             </>
                         )}
 
-                        <div className='grid grid-cols-2 w-[420px] mr-6'>
+                        <div className='grid xx:grid-cols-1 sm:grid-cols-2 xx:w-full sm:w-[420px] mr-6'>
 
                             <button className='bg-[#BE123C] flex mt-5 px-1 justify-center flex-row text-white py-2 rounded-lg '>
                                 <a className="px-1 font-semibold ">Top rated movie #{movieDetails.id}</a>
@@ -191,26 +210,26 @@ const MovieDetails = () => {
                         </div>
                     </div>
 
-                    <div className='w-[300px] ml-14 mt-4 flex flex-col justify-center  px-3'>
+                    <div className='xx:w-full sm:ml-2 flex flex-col justify-center sm:mb-16 px-3'>
                         <button className='bg-[#BE123C] flex justify-center flex-row text-white py-2 rounded-lg '>
                             <img src={ticket} alt="Logo" className="h-7 w-7 mr-2" />
                             <a className="px-1 font-semibold flex">See Showtimes </a>
                         </button>
 
-                        <button className='bg-[#f7d9e0] mb-12 border-2 border-[#BE123C]  mt-4 flex justify-center flex-row text-black py-2 rounded-lg '>
+                        <button className='bg-[#f7d9e0] hover:border-2 hover:border-black mb-12 border-2 border-[#BE123C]  mt-4 flex justify-center flex-row text-black py-2 rounded-lg'>
                             <img src={List} alt="Logo" className="h-7 w-7 mr-2" />
                             <a className="px-1 font-semibold flex">More watch options </a>
                         </button>
 
                         <div>
-                            <div className=' mt-4'>
-                                <div className=' py-2 '>
+                            <div className='py-2 px-3 pb-4'>
+                                
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
                                         alt={movieDetails.title}
                                         className='w-full h-[170px]'
                                     />
-                                </div>
+
 
                             </div>
 
