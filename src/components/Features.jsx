@@ -1,6 +1,6 @@
 
 import PropTypes from 'prop-types'; 
-import right from "../assets/icon.png"
+import right from "../assets/Icon.png"
 import { Link } from 'react-router-dom';
 import imdb from "../assets/IMDB.png";
 
